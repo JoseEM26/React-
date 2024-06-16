@@ -1,0 +1,370 @@
+ *{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;  
+ }
+
+/* Baner */
+
+.contenedorli{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    padding: 2% 0;
+}
+.enlaces{
+     list-style: none;
+}
+.letra{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+}
+.letra:hover{
+    font-size: 23px;
+}
+
+.imagenn{
+    width: 10px;
+    height: 100px;
+}
+
+
+/* Inicio */
+
+
+.Baner{
+    width: 100%;
+    height: 430px;
+}
+
+
+
+.ContenedorComentario{
+    text-align: center;
+    margin: 10px;
+    margin-bottom: 10px;
+}
+.enlaceParrafo{
+    text-decoration: none;
+    color: orange;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.COntenedortto{
+display: flex;
+justify-content: space-around;
+text-align: center;
+margin: 10px 0;
+}
+.contenedorCelulares{
+    box-shadow: 0px 0px 13px 1px black;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+.Boton{
+    border: 0;
+    background-color: orange;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+.Boton:hover{
+    padding: 13px;
+}
+
+.antes{
+    text-decoration: line-through;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+.Baner2{
+    width: 100%;
+    height: 600px;
+}
+.ContenedorPie{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
+    padding: 10px 0;
+}
+
+
+  /* Mensaje De Quienes Somos */
+  .ContenedorMensajes{
+    text-align: center;
+   
+    margin-top: 20px;
+  }
+
+  .ParrafoMensaje1{
+    color: rgb(255,140,4);
+    font-size: 1.5em;
+    
+  }
+
+  .ParrafoMensaje{
+    font-weight: 750;
+    font-size: 1.2em;
+  }
+
+
+
+  
+  /* Cuerpo de Quienes Somos */
+  .ContenedorMenu{
+    display: grid;
+    place-items: center;
+    margin-bottom: 100px;
+  }
+  .contenedorUnitario{
+
+    width: 86%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ImagenPersona{
+    width: 20% ;
+    height: 230px;
+  }
+  .ImagenFlecfa{
+    width: 5%;
+    height: 65px;
+  }
+  .parrafo{
+    color: gray;
+    justify-content: center;
+    font-size: 15px;
+    width: 20%;
+    padding: 0px 20px;
+    font-weight: 700;
+  }
+
+  /* Conocenos  */
+  
+.Body {
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  font-size: 100%;
+  margin-top: 20px;
+  background-color: beige;
+}
+
+.imgub {
+  width: 80px;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.imghr {
+  width: 80px;
+  margin-top: 15px;
+}
+
+.map {
+  text-align: center;
+  width: 50%;
+ margin-left:  25%; 
+ margin-top: 10px;
+
+}
+.imgdere {
+  border: 50%;
+  border-radius: 1opx;
+  width: 800px;
+}
+
+.Datos {
+  padding-top: 135px;
+}
+
+.Datos2 {
+  text-align: center;
+  padding-top: 100px;
+  color: black;
+  margin-left: 15px;
+  font-size: 150%;
+}
+
+.imgwsp {
+  width: 100px;
+  text-align: center;
+}
+
+.imgcorre {
+  width: 100px;
+}
+
+.comunicar {
+  display: flex;
+  justify-content: center;
+}
+
+.whats, .email {
+  text-align: center;
+  font-style: italic;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* Paginas Descuento */
+.App {
+  margin: auto;
+  text-align: center;
+  width: 1200px;
+}
+
+.ConteListDesc {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0px 20%;
+  margin-bottom: 8%;
+  margin-top: 40px;
+
+}
+.Desccc{
+  background-color: black;
+  width: max-content;
+  color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 15px;
+  padding-right: 20px;
+  margin-left: 20.5%;
+}
+.BloqDesc{
+  width: 30%;
+  box-shadow: 1px 1px 10px 1px rgb(134, 134, 134);
+  border-radius: 15px;
+  text-align: center;
+  margin: 10px
+  
+}
+.BloqInfo{
+  color: white;
+  padding-bottom: 15px;
+  background-color: black;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  padding: 10px 0;
+}
+
+.btnPagDesc{
+  width: 90px;
+  height: 30px;
+  margin-top: 7px;
+  border-radius: 4px;
+  box-shadow: rgb(0, 0, 0);
+}
+.btnPagDesc a{
+  text-decoration: none;
+}
+.btnPagDesc{
+  
+  background-color:  orange;
+  border: 0;
+}
+
+.btnPagDesc:hover{
+  background-color: rgb(135, 132, 132);
+}
+.PrecSinDesc{
+  text-decoration: line-through;
+  color: rgb(152, 148, 148);
+}
+  /* descuentos */
+.ContenedorPadrees{
+  margin: 0 20%;
+}
+.ContenedorHijoos{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.ContenedorNietoos{
+  width: 28%;
+  text-align: center;
+  margin: 30px 0;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.308);
+  border-radius: 20px;
+}
+.Celularessss{
+  width: 100%;
+  height: 300px;
+}
+.NombreDes{
+  height: 62px;
+}
+.PrecioDesc{
+  font-size: 1.6em;
+}
+.ButonDesc{
+  background-color: orange;
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 10px 0;
+  font-size: 1.1em;
+  font-weight: 700;
+}
+.ButonDesc:hover{
+  border: 20px orange;
+}
+.negrito{
+  background-color: black;
+  color: white;
+  border-radius: 0 0 10px 10px ;
+}
+
+/* Servicio Tecnico */
+.ContenedorHijooss{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.ContenedorPadreesTecnico{
+  margin: 0 25%;
+}
+.ContenedorNietoosTecnicio{
+  width: 35%;
+  text-align: center;
+  margin: 30px 25px;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.308);
+  border-radius: 20px;
+}
+.DescccServicio{
+  background-color: black;
+  width: max-content;
+  color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 15px;
+  padding-right: 20px;
+  margin-left: 7%;
+}
+.DescccIphone{
+  background-color: black;
+  width: max-content;
+  color: white;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 15px;
+  padding-right: 20px;
+  margin-left: 3%;
+}

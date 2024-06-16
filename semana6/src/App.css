@@ -1,0 +1,118 @@
+.h1cab,.h2cab{
+  text-align: center;
+  color:white; 
+}
+
+.imgcab{
+  width: 100%;
+  height: 300px; 
+}
+.container{
+  width: 90%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+ 
+.bloque{
+  width: 100%;
+  height: auto;
+  float: left;
+  background-color: gray;
+ }
+
+.item{
+  display: inline-block;
+  width: 16.5%;
+  text-align: center;
+  border-right: 1px solid white;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.item:hover{
+  background-color: white;
+  color:gray; 
+}
+.divseccion{
+  width: 100%;
+  height: auto;
+  background-color: gray;
+}
+
+.imgseccion{
+  width: 31%;
+  height: 250px;
+  
+  padding: 1%;
+  border: 1px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.img-tradicion{
+  width: 100%;
+  height: 250px;
+}
+
+.art-tradicion{
+  width: 31%;
+  height: 250px;
+  padding: 1%;
+  border: 1px solid;
+  border-radius: 10px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.h3cab{
+  text-align: center;
+  color: gray;
+}
+
+.art-tradicion:hover .img-tradicion{
+  height: 0px;
+  transition: all .05s;
+}
+
+
+.imgpie{
+  width: 100%;
+  height: auto; 
+}
+
+.div-fecha{
+  width: 50%;
+  display: inline-block;
+  height: 30px;
+  background-color: gray; 
+  color: white;
+}
+
+.div-footer{
+  width: 50%;
+  float: left;
+  min-height: 200px;
+  height: auto;
+  background-color: gray; 
+  color: white;
+}
+
+.img-rs{
+  width: 40px;
+  padding-left: 5px;
+  height: 40px; 
+}
+
+.li-footer{
+  margin: 0 20px; 
+  list-style: circle;
+  padding: 0;
+}
+
+.btn{
+  margin-top: 10px;
+}

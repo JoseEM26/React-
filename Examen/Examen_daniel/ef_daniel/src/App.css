@@ -1,0 +1,49 @@
+ .bann{
+  width: 100%;
+  height: 400px;
+ }
+ .ttt{
+  text-align: center;
+  font-size: 100px;
+  background-color: black;
+ }
+ .FechayHoras{
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+  color: white;
+  font-size: 50px;
+  border-radius: 100%;
+ }
+ .imgggggg{
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  margin: 20px;
+ }
+ .divfott{
+  text-align: center;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ContenedorPadree{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.192);
+  border-radius: 10%;
+  margin: 4px;
+}
+.etexx{
+  font-size: 30px;
+
+}
+.nombres{
+  border-radius: 10px;
+}
+.contenedorDivc{
+}
