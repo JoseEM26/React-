@@ -1,0 +1,149 @@
+//DEFINIR LOS ARREGLOS
+
+//arreglo para carrusel
+let imagenes = new Array("img/banner1.jpg", "img/banner2.jpg", "img/banner3.jpg", "img/banner4.jpg");
+
+//arreglo para calendario
+let meses = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "setiembre", "octubre", "noviembre", "diciembre"];
+
+
+//CARRUSEL
+let c=0;
+let banner = document.getElementById("banner");
+
+function efectoCarrusel(){
+    banner.style.opacity="0";
+    banner.style.transition="all 1s";
+    setTimeout(carrusel, 1000);
+}
+
+function carrusel(){
+    c++;
+    if(c>=4) c=0;
+    banner.style.opacity="1";
+    banner.style.transition="all 1s";
+    banner.setAttribute("src", imagenes[c]);
+    setTimeout(efectoCarrusel, 1000);
+}
+
+
+//CALENDARIO
+function calendario(){
+    let f=new Date();
+    let dia=f.getDate();
+    let mes=meses[f.getMonth()];
+    let year=f.getFullYear();
+
+    let mesSiguiente = f.getMonth() + 1;
+    let mesActual = f.getMonth();
+
+    //el último día del mes actual, accediendo al mes siguiente - 1 día;
+    let ndias = (new Date(f.getFullYear(), mesSiguiente, 0).getDate());
+    //el día de la semana del primer día del mes
+    let dsemana = (new Date(f.getFullYear(), mesActual, 1).getDay());
+  /*  
+    let flechaAbajo = document.getElementById("fabajo");
+    function aumentarMes(){
+        mesSiguiente++;
+        mesActual++;
+    }
+    function disminuirMes(){
+        mesSiguiente--;
+        mesActual--;
+    }
+
+    flechaAbajo.setAttribute("onclick", "aumentarMes()");
+*/
+
+    let dias = new Array();
+    for(let i=0; i<dsemana; i++){dias.push("");}
+    for(let i=1; i<=ndias; i++){dias.push(i);}
+
+    let tabla = "<table>";
+    tabla+="<tr><td colspan=7>"+ mes + " de " + year + "</td></tr>";
+    tabla+="<tr><th>Dom</th><th>Lun</th><th>Mar</th><th>Mie</th><th>Jue</th><th>Vie</th><th>Sab</th>";
+
+    let i=0;
+    dias.forEach(function(d){
+        
+        if(i%7==0) tabla+="<tr>";
+
+        i++;
+
+        if(dia==d){
+            tabla+="<td style='color:white;background-color:lightblue'>"+d+"</td>";
+        }else{
+            tabla+="<td>"+d+"</td>";
+        }
+        
+
+        if(i%7==0) tabla+="</tr>";
+
+    });
+
+    tabla+="</table>";
+
+    document.getElementById("calendario").innerHTML=tabla;
+    //console.log(dias)
+}
+
+
+//REDIMENSIONA FLECHA
+function redimensionaFlecha(){
+    let derecha = document.getElementById("der");
+    let banner = document.getElementById("banner");
+    let ubicacion = banner.clientWidth - derecha.clientWidth;
+    derecha.style.left = ubicacion + "px";
+
+}
+
+
+//BLOG
+//obtener los elementos
+const inputTexto = document.getElementById("inputTexto");
+const btnGrabar = document.getElementById("btnGrabar");
+const divTexto = document.getElementById("texto");
+
+btnGrabar.addEventListener('click', function(){
+    //obtener el valor del input
+    let nuevoTexto = inputTexto.value;
+
+    //Obtener el contenido actual
+    let contenidoActual = divTexto.innerHTML;
+
+    //Agregamos el nuevo contenido al actual
+    contenidoActual+= '<p>' + nuevoTexto + '</p>';
+
+    //Actualizar
+
+    divTexto.innerHTML = contenidoActual;
+
+    //Limpiar
+    inputTexto.value = "";
+});
+
+
+//evento onmouseover y onmouseout
+let imagen = document.getElementById("blog-img");
+function paseMouseIn(){
+    imagen.style.transform="rotateX(180deg)";
+}
+
+function paseMouseOut(){
+    imagen.style.transform="rotateX(0)";
+}
+
+
+
+imagen.setAttribute("onmouseout", "paseMouseOut()");
+imagen.setAttribute("onmouseover", "paseMouseIn()");
+
+
+document.body.setAttribute("onload", "redimensionaFlecha(); carrusel(); calendario()");
+document.body.setAttribute("onresize", "redimensionaFlecha()")
+
+
+
+
+
+

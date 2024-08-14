@@ -1,0 +1,41 @@
+import React, { useState } from "react";
+
+const ItemsData = [
+    {nombre: 'Index', enlace: '/'},
+    {nombre: 'Tradiciones', enlace: '/'},
+    {nombre: 'Gastronomía', enlace: '/'},
+    {nombre: 'Plato Bandera', enlace: '/'},
+    {nombre: 'Contáctenos', enlace: '/'},
+    {nombre: 'Cibertec', enlace: 'https://www.cibertec.edu.pe'}
+]
+
+//Componente funcional
+const Menu = () => {
+    //Usaremos el hook useState para manejar los estados
+    const [elementos, setElementos] = useState([]);
+    
+    //Creamos los elementos del menú a partir del arreglo ItemsData
+    useState(()=>{
+        const MenuItems = ItemsData.map((elemento, index) => (
+            <a
+                key={index}
+                href={elemento.enlace}
+                className="item"
+                target="_blank"
+            >
+                {elemento.nombre}
+            </a>
+        ))
+        //Establecer los elementos del menú
+        setElementos(MenuItems)
+    },[]) //El segundo argumento del useState se utiliza para asegurarse de que el estado se configure solo una vez
+
+    return(
+        <nav className="bloque">
+            {elementos}
+        </nav>
+    )
+}
+
+export default Menu
+

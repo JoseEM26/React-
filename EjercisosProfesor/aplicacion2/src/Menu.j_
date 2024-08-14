@@ -1,0 +1,27 @@
+import React,{Component} from "react";
+
+const Nombres  = ['Index', 'Tradiciones', 'Gastronomía', 'Plato Bandera', 'Contáctenos', 'Google'];
+class Menu extends Component {
+    state={
+        items: []
+    }
+
+
+
+    constructor(props){
+        super(props)
+        this.state={
+            items: Nombres.map((x) => <a href="/" className="item">{x}</a>)
+        }
+    }
+
+    render(){
+        return(
+            <div className="bloque">
+                {this.state.items}
+            </div>
+        )
+    }
+}
+
+export default Menu;

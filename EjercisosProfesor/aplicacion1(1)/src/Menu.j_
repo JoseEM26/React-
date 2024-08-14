@@ -1,0 +1,29 @@
+import React from "react";
+
+import items from "./ElementosMenu";
+//Crear un arreglo de objetos que contiene el nombre y la URL por cada elemento del menú
+
+
+
+//Crear un componente funcional para un elemento del menú
+function MenuItem({text, url}){
+    return(
+        <a href={url} className="item">
+            {text} {/*comentario entre llaves*/}
+        </a>
+    );
+}
+
+//Crear el componente principal para el menú
+function Menu(){
+    return(
+    <div className="bloque">
+        {items.map((elemento, index) => (
+            <MenuItem key={index} text={elemento.text} url={elemento.url}/>
+        ))}
+    </div>
+    );
+}
+
+export default Menu;
+

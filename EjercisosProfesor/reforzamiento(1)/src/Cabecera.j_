@@ -1,0 +1,44 @@
+import React, {useState, useEffect} from "react";
+
+const imagenes = [
+    '/img/ban1.jpg',
+    '/img/ban2.jpg',
+    '/img/ban3.jpg',
+    '/img/ban4.jpg',
+    '/img/ban5.jpg'
+]
+
+const Cabecera = () => {
+  const [titulo, setTitulo] = useState('');
+  const [imgcab, setImgcab] = useState(imagenes[0]);
+  const [color, setColor] = useState({r: 0, g: 0, b: 0});
+  
+  useEffect(() => {
+    const intervaloImagen = setInterval(() => {
+        const randomIndex = Math.floor(Math.random() * imagenes.length);
+        setImgcab(imagenes[randomIndex]);
+    }, 1000); //setInterval(función, 1000)
+
+    const intervaloColor = setInterval(() => {
+        const r = Math.floor(Math.random() * 250);
+        const g = Math.floor(Math.random() * 250);
+        const b = Math.floor(Math.random() * 250);
+        //Actualizar el estado del color del título
+        setColor({r, g, b});
+    }, 1000);
+    setTitulo('Tradiciones');
+    return () => {
+        clearInterval(intervaloImagen);
+        clearInterval(intervaloColor);
+    }
+  }, []);
+
+  return(
+    <header className="bloque">
+        <h1 className="h1cab" style={{color: `rgb(${color.r}, ${color.g}, ${color.b})`}}>{titulo}</h1>
+        <img className="imgcab" src={imgcab} alt={titulo}/>
+    </header>
+  )
+}
+
+export default Cabecera;

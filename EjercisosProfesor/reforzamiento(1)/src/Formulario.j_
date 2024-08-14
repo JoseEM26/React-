@@ -1,0 +1,149 @@
+import React, {useState} from "react";
+import Cuerpo from "./Cuerpo";
+
+function Formulario() {
+    const [nombre, setNombre] = useState('')
+    const [comentarios, setComentarios] = useState('')
+    const [tipos, setTipos] = useState('')
+    const [registrado, setRegistrado] = useState(false)
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        //obtener los valores de los campos del formulario
+        const nombre = event.target.nombre.value;
+        const tipo = event.target.tipos.value;
+        const dni = event.target.dni.value;
+        const correo = event.target.icorreo.value;
+        const telefono = event.target.telefono.value;
+        const comentarios = event.target.comentarios.value;
+        const tos = event.target.tos.checked;
+
+        //validamos
+
+        if(nombre.length === 0 || nombre.length > 100) {
+            alert('el nombre debe tener al menos un caracter y máximo 100 caracteres')
+            return;
+        }
+
+        if((telefono.length !==7 && telefono.length !== 9) ||
+            (telefono.length === 7 && !/^[23456]/.test(telefono)) ||
+            (telefono.length === 9 && !/^9/.test(telefono))) {
+                alert('El teléfono debe3 tener 7 dígitos y comenzar con 2,3, 4,5 o 6; o tener 9 dígitos y comenzar con 9')
+                return;
+        }
+
+        if((tipo === '1' && !/^\d{8}$/.test(dni)) ||
+            (tipo === '2' && !/^[\w\d]{12}$/.test(dni))) {
+                alert('El DNI debe tener 8 dígitos para el tipo DNI y 12 caracteres alfanuméricos para el tipo CE')
+                return;
+        }
+
+        if(!/\S+@\S+\.\S/.test(correo)){
+            alert('Ingrese correo electrónico válido')
+            return;
+        }
+
+        if (comentarios.length === 0 || comentarios.length > 200) {
+            alert('Los comentarios deben tener mínimo 1 y máximo 200');
+            return;
+        }
+        if(!tos){
+            alert('Acepte los Términos y Condiciones del servicio')
+            return;
+        }
+
+        alert('Gracias totales')
+        setRegistrado(true)
+    }
+    return (
+        <div className="container">
+          {registrado ? (
+            <Cuerpo/> // Mostrar el componente Cuerpo si el usuario se ha registrado
+          ) : (
+            <form onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="inombre">Nombre</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="inombre"
+                  name="nombre"
+                  placeholder="Ingrese su nombre"
+                  value={nombre}
+                  onChange={(e) => setNombre(e.target.value)}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="itipo">Tipo de documento</label>
+                <select
+                  className="form-control"
+                  id="itipo"
+                  name="tipos"
+                  value={tipos}
+                  onChange={(e) => setTipos(e.target.value)} // Actualizar el estado del tipo al cambiar la selección
+                >
+                  <option value="1">DNI</option>
+                  <option value="2">CE</option>              
+                </select>
+              </div>
+              <div className="form-group">
+                <label htmlFor="idni">DNI</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="idni"
+                  name="dni"
+                  placeholder="Ingrese DNI"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="icorreo">Correo</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="icorreo"
+                  name="icorreo"
+                  placeholder="Ingrese correo"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="itelefono">Teléfono</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="itelefono"
+                  name="telefono"
+                  placeholder="Ingrese teléfono (7 a 9 digítos)"
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="icomentarios">Comentarios</label>
+                <textarea
+                  className="form-control"
+                  id="icomentarios"
+                  name="comentarios"
+                  placeholder="Ingrese sus comentarios"
+                  value={comentarios}
+                  onChange={(e) => setComentarios(e.target.value)}
+                ></textarea>
+              </div>
+              
+              <div className="form-check">
+                <input type="checkbox" className="form-check-input" id="itos" name="tos" />
+                <label htmlFor="itos" className="form-check-label">
+                  Acepto Términos y condiciones del servicio?
+                </label>
+              </div>
+              
+              <button type="submit" className="btn btn-primary">
+                Registrar
+              </button>
+            </form>
+          )}
+        </div>
+      );
+
+}
+
+export default Formulario;

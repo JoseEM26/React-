@@ -1,0 +1,61 @@
+import React from "react";
+
+const ImgRedes = [
+    "/img/twitter.jpg",
+    "/img/face.jpg",
+    "/img/instagram.jpg"
+]
+
+const ListaOpciones = [
+    {texto: 'Index', ruta: '/'},
+    {texto: 'Tradiciones', ruta: '/'},
+    {texto: 'Costumbres', ruta: '/'},
+    {texto: 'Platos típicos', ruta: '/'},
+    {texto: 'Restaurantes', ruta: '/'},
+    {texto: 'Museos y parques', ruta: '/'},
+    {texto: 'Calendario', ruta: '/'},
+    {texto: 'Contáctenos', ruta: '/'}
+]
+
+//Componente funcional
+function Pie() {
+    const handleMouseEnter = (event) => {
+        event.target.style.transform = 'rotate(360deg)';
+        event.target.style.transition = 'all 1s';   
+    }
+    const handleMouseLeave = (event) => {
+        event.target.style.transform = 'rotate(0)';
+        event.target.style.transition = 'all 1s';   
+    }
+
+    const RedesSociales = ImgRedes.map((ruta, index) => (
+        <img
+            key={index}
+            className="img-rs"
+            src={ruta}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            alt={`Red social ${index}`}
+        />
+    ))
+
+    const OpcionesPie = ListaOpciones.map((opcion, index) => (
+        <li key={index} className="li-footer">
+            <a href={opcion.ruta}>{opcion.texto}</a>
+        </li>
+    ))
+
+    return(
+        <footer>
+            <article className="div-footer">
+                <ul>{OpcionesPie}</ul>
+            </article>
+            <article className="div-footer">
+                <h3>Síguenos en: </h3>
+                {RedesSociales}
+            </article>
+        </footer>
+    )
+}
+
+export default Pie

@@ -1,0 +1,119 @@
+/*/ Función para mostrar el texto del socio
+function mostrarInfoSocio(id) {
+    // Ocultar todos los textos de socios
+    const textosSocios = document.querySelectorAll('.texto-oculto');
+    textosSocios.forEach(texto => {
+        texto.style.display = 'none';
+    });
+
+    // Mostrar el texto del socio seleccionado
+    const textoSocioSeleccionado = document.querySelector(`article.socio:nth-child(${id}) .texto-oculto`);
+    textoSocioSeleccionado.style.display = 'block';
+}
+*/
+
+function mostrarInfoSocio(id) {
+    // Obtener todos los elementos con la clase 'texto-oculto' (que son los textos de los socios)
+    const textosSocios = document.querySelectorAll('.texto-oculto');
+
+    // Iterar a través de cada elemento encontrado
+    textosSocios.forEach(function(texto) {
+        // Para cada elemento, establecer el estilo 'display' en 'none' (ocultar el texto)
+        texto.style.display = 'none';
+    });
+
+    // Obtener el texto del socio seleccionado utilizando el ID pasado como argumento
+    const textoSocioSeleccionado = document.querySelector(`article.socio:nth-child(${id}) .texto-oculto`);
+
+    // Para el texto del socio seleccionado, establecer el estilo 'display' en 'block' (mostrar el texto)
+    textoSocioSeleccionado.style.display = 'block';
+
+    // Establecer un temporizador para ocultar el texto después de 10 segundos (10000 milisegundos)
+    setTimeout(function() {
+        textoSocioSeleccionado.style.display = 'none';
+    }, 10000); // 10000 milisegundos = 10 segundos
+}
+
+
+
+/***MISIÓN VISION */
+/*contenido-${id}: Esto es una cadena de texto que se crea utilizando el operador de plantillas (encerrando la cadena en comillas invertidas o acento grave ``). En esta cadena, ${id} es una interpolación de variables que inserta el valor de la variable id en la cadena. Esto significa que si id es, por ejemplo, "mision", la cadena resultante será "contenido-mision".
+
+Entonces, en resumen, la línea de código document.getElementById(contenido-${id}); selecciona un elemento HTML cuyo atributo id coincide con el valor de id proporcionado como argumento a la función mostrarContenido(). Esto es útil para acceder y manipular dinámicamente elementos específicos de la página web utilizando JavaScript. En el caso de tu código, se utiliza para mostrar u ocultar el contenido correspondiente cuando se hace clic en una sección del acordeón.*/
+
+function mostrarContenido(id) {
+    const contenido = document.getElementById(`contenido-${id}`);
+    if (contenido.style.display === 'block') {
+        contenido.style.display = 'none';
+    } else {
+        contenido.style.display = 'block';
+    }
+}
+
+
+/*CUENTA REGRESIVA */
+
+function iniciarCuentaRegresiva() {
+    const segundosInput = document.getElementById("segundosInput");
+    const contador = document.getElementById("contador");
+
+    // Obtener el valor en segundos ingresado por el usuario
+    const segundos = parseInt(segundosInput.value);
+
+    if (isNaN(segundos) || segundos <= 0) {
+        alert("Por favor, ingrese un valor válido en segundos.");
+        return;
+    }
+
+    // Función de cuenta regresiva que se ejecuta cada segundo
+    let tiempoRestante = segundos;
+
+    const intervalo = setInterval(function () {
+        contador.textContent = tiempoRestante + " segundos";
+
+        // Verificar si llegamos a cero y detener la cuenta regresiva
+        if (tiempoRestante <= 0) {
+            clearInterval(intervalo);
+            contador.textContent = "Gracias por su visita.";
+        }
+
+        tiempoRestante--;
+    }, 1000); // 1000 milisegundos = 1 segundo
+}
+
+
+/*REDIRIGIENDO A OTRA PÁGINA */
+//RETOOOOOOOOO
+
+
+function iniciarCuentaRegresiva() {
+    const segundosInput = document.getElementById("segundosInput");
+    const contador = document.getElementById("contador");
+
+    // Obtener el valor en segundos ingresado por el usuario
+    const segundos = parseInt(segundosInput.value);
+
+    if (isNaN(segundos) || segundos <= 0) {
+        alert("Por favor, ingrese un valor válido en segundos.");
+        return;
+    }
+
+    // Función de cuenta regresiva que se ejecuta cada segundo
+    let tiempoRestante = segundos;
+
+    const intervalo = setInterval(function () {
+        contador.textContent = tiempoRestante + " segundos";
+
+        // Verificar si llegamos a cero y redirigir al usuario
+        if (tiempoRestante <= 0) {
+            clearInterval(intervalo);
+            contador.textContent = "Redirigiendo a index.html...";
+            setTimeout(function () {
+                // Redirigir al usuario a index.html después de 2 segundos (puedes ajustar el tiempo)
+                window.location.href = "index.html";
+            }, 2000); // 2000 milisegundos = 2 segundos
+        }
+
+        tiempoRestante--;
+    }, 1000); // 1000 milisegundos = 1 segundo
+}

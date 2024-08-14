@@ -1,0 +1,188 @@
+//variable global cambio
+let cambio = 0;
+let impuesto = 0;
+
+function cambioMoneda(){
+    if(cambio == 0){
+        enDolar();
+    }
+    else if(cambio == 1){
+        enSoles();
+    }
+}
+
+function cambioImpuesto(){
+    if(impuesto == 0){
+        conImpuestos();
+    }
+    else if(impuesto == 1){
+        sinImpuestos();
+    }
+}
+//FUNCIÓN CON PARÁMETROS
+//Precio en dólares:
+function enDolar(tipo) {
+    while (parseFloat(tipo) != tipo) {
+        tipo = prompt('Introduzca tipo de cambio: Solo números', '', '');
+    }
+
+
+    let soles = document.getElementById('precio').innerHTML;
+    let dolares = parseFloat(soles) / tipo;
+    document.getElementById('precio').innerHTML = dolares.toFixed(2);
+    document.getElementById('texto').innerHTML = "Precio US$ :";
+    document.getElementById('dolares').innerHTML = "S/";
+    cambio = 1;
+}
+//Precio en soles
+function enSoles(tipo) {
+    while (parseFloat(tipo) != tipo) {
+        tipo = prompt('Introduzca tipo de cambio: Solo números', '', '');
+    }
+
+
+    let soles = document.getElementById('precio').innerHTML;
+    let dolares = parseFloat(soles) * tipo;
+    document.getElementById('precio').innerHTML = dolares.toFixed(2);
+    document.getElementById('texto').innerHTML = "Precio S/ :";
+    document.getElementById('dolares').innerHTML = "US$";
+    cambio = 0;
+}
+
+
+//FUNCIÓN SIMPLE
+
+function conImpuestos() {
+    var precioSin = document.getElementById('precio').innerHTML;
+    var precioCon = parseFloat(precioSin) * 1.18;
+    document.getElementById('precio').innerHTML = precioCon.toFixed(2);
+    document.getElementById('texto').innerHTML = "Precio inc. IGV: ";
+    impuesto = 1;
+}
+
+function sinImpuestos() {
+    var precioSin = document.getElementById('precio').innerHTML;
+    var precioCon = parseFloat(precioSin) / 1.18;
+    document.getElementById('precio').innerHTML = precioCon.toFixed(2);
+    document.getElementById('texto').innerHTML = "Precio sin IGV: ";
+    impuesto = 0;
+}
+
+
+//función sin return
+/*
+function confirmarCompra() {
+    const producto = document.getElementById('producto').textContent;
+    const mensaje = `Ud ha comprado ${producto}`;
+    alert(mensaje);
+}*/
+
+function confirmarCompra(productoSeleccionado) {
+    const productoElement = document.querySelector('.producto');
+    if (productoElement) {
+        const productos = document.querySelectorAll('.producto');
+        const producto = productos[productoSeleccionado - 1].textContent;
+        const mensaje = `Ud ha comprado ${producto}`;
+        alert(mensaje);
+    } else {
+        alert("No se ha encontrado información del producto.");
+    }
+    
+}
+
+//En esta función, seleccionamos todos los elementos con la clase "producto" y luego utilizamos el argumento productoSeleccionado para acceder al producto correcto dentro de la lista de productos y mostrar el mensaje apropiado.
+
+
+/* volvemos la función anterior a función de flecha
+const confirmarCompra = (productoSeleccionado) => {
+    const productoElements = document.querySelectorAll('.producto');
+    if (productoElements.length >= productoSeleccionado) {
+        const producto = productoElements[productoSeleccionado - 1].textContent;
+        const mensaje = `Ud ha comprado ${producto}`;
+        alert(mensaje);
+    } else {
+        alert("No se ha encontrado información del producto.");
+    }
+};
+
+//En esta versión, hemos cambiado function confirmarCompra a const confirmarCompra para crear una función de flecha. Además, hemos utilizado document.querySelectorAll('.producto') para obtener todos los elementos con la clase "producto" en lugar de document.querySelector('.producto') para asegurarnos de obtener todos los productos disponibles. Luego, comprobamos si el número de producto seleccionado está dentro del rango válido antes de acceder al producto correspondiente. La función de flecha funcionará de la misma manera que la versión anterior, pero en una sintaxis más concisa.
+*/
+
+
+
+
+
+/*MODAL*/
+/*
+// Obtener las imágenes y el modal
+const imagen = document.querySelectorAll('img');
+const modal = document.getElementById('miModal');
+const modalImagen = document.getElementById('modalImagen');
+const modalTexto = document.getElementById('modalTexto');
+const modalPrecio = document.getElementById('modalPrecio');
+const cerrarModalButton = document.getElementById('cerrarModal');
+
+
+// Agregar un manejador de eventos clic a cada imagen
+imagen.forEach((image) => {
+  image.addEventListener('click', () => {
+    modal.style.display = 'block'; // Mostrar el modal
+    modalImagen.src = image.src; // Establecer la imagen en el modal
+    modalImagen.style.transform="scale(200%)";
+    modalImagen.style.borderRadius="25px";
+    modalTexto.textContent = document.getElementById('precio').innerHTML//article.getElementById('#texto').textContent; // Establecer el texto de h4 en el modal
+    modalPrecio.textContent = document.getElementById('producto').innerHTML//article.querySelector('#precio').textContent; // Establecer el texto de h3 en el modal
+  });
+});
+
+// Agregar un manejador de eventos clic para cerrar el modal
+   cerrarModalButton.addEventListener('click', () => {
+   modal.style.display = 'none'; // Ocultar el modal al hacer clic en el botón de cierre
+});
+
+*/
+
+
+//MODAL 2
+
+function abrirModal(imagenSrc, pie) {
+    const modal = document.getElementById("miModal");
+    const imagenModal = document.getElementById("imagenModal");
+    const pieModal = document.getElementById("pieModal");
+
+    imagenModal.src = imagenSrc;
+    pieModal.textContent = pie;
+    modal.style.display = "block";
+}
+
+function cerrarModal() {
+    const modal = document.getElementById("miModal");
+    modal.style.display = "none";
+}
+
+/*FECHA Y HORA */
+
+//let fecha = new Date().getFullYear();
+//document.getElementById("copy").innerHTML="&copy;" + fecha;
+
+let fecha = new Date();
+let d = fecha.getDate();
+let m = fecha.getMonth()+1;
+let y = fecha.getFullYear();
+
+document.getElementById("fecha").textContent = d + "/" + m + "/" + y;
+
+console.log(fecha);
+
+function tiempo(){
+    let fecha = new Date();
+    let h = fecha.getHours();
+    let m = fecha.getMinutes();
+    let s = fecha.getSeconds(); 
+    document.getElementById("hora").textContent = h + ":" + m + ":" + s;
+}
+
+setInterval(tiempo, 1000);
+
+
+

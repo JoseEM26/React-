@@ -1,0 +1,18 @@
+import './App.css';
+import Cabecera from './Cabecera';
+import Formulario from './Formulario';
+import Pie from './Pie';
+import Tiempo from './Tiempo';
+
+function App() {
+  return (
+    <div className="container">
+      <Cabecera/>
+      <Tiempo/>
+      <Formulario/>
+      <Pie/>
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,35 @@
+import React from "react";
+
+const rs = [
+    "/img/face.jpg",
+    "/img/instagram.jpg",
+    "/img/twitter.jpg"
+]
+const rsCambio = [
+    "/img/face1.jpg",
+    "/img/instagram1.jpg",
+    "/img/twitter1.jpg"
+]
+
+const Pie = () => {
+    return (
+        <footer className="divsocial">
+            <span>Síguenos en: </span>
+            {
+                rs.map((x, index) => (
+                    <img
+                    key={index}
+                    src={x}
+                    className="img-rs"
+                    onMouseOver={(e) => (e.currentTarget.src = rsCambio[index])}
+                    onMouseOut={(e) => (e.currentTarget.src = rs[index])}
+                    alt="Redes"
+                    />
+                ))
+            }
+        </footer>
+    )
+}
+
+
+export default Pie;

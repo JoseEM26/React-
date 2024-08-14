@@ -1,0 +1,29 @@
+import React from "react";
+
+import ImagenCabecera from './img/header.jpg';
+
+
+function Titulo(){
+    return(
+        <h1 className="h1cab">
+            Tradiciones
+        </h1>
+    );
+}
+
+function Imagen(){
+    return(
+        <img className="imgcab" src={ImagenCabecera} alt="Cabecera"/>
+    );
+}
+
+function Cabecera(){
+    return(
+        <div className="bloque">
+            <Titulo></Titulo>
+            <Imagen></Imagen>
+        </div>
+    );
+}
+
+export default Cabecera

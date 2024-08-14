@@ -1,0 +1,10 @@
+const items = [
+    {text: 'Index', url: '/'},
+    {text: 'Tradiciones', url: './Tradiciones'},
+    {text: 'Gastronomía', url: './Gastronomia'},
+    {text: 'Plato Bandera', url: './PlatoBandera'},
+    {text: 'Contáctanos', url: './Contactanos'},
+    {text: 'Google', url: 'https://www.google.com.pe'}
+];
+
+export default items;

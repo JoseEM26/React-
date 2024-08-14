@@ -1,0 +1,87 @@
+import React, { useState } from "react";
+
+import FormularioRegistro from "./FormularioRegistro";
+
+let intento = 0
+
+const usuarios = [
+    { nombreUsuario: 'Rosalinda', contrasena: 'contraseña1' },
+    { nombreUsuario: 'Aracelly', contrasena: 'contraseña2' },
+    { nombreUsuario: 'Mirella', contrasena: 'contraseña3' },
+    { nombreUsuario: 'AnaLucia', contrasena: 'contraseña4' }
+]
+
+//Definir el componente funcional
+const Login = () => {
+
+    const [nombreUsuario, setNombreUsuario] = useState('')
+    const [contrasena, setContrasena] = useState('')
+    const [mostrarRegistro, setMostrarRegistro] = useState(false)
+
+    //función para manejar el envío del formulario
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        //buscar si existe un usuario con las credenciales ingresadas
+        const usuarioEncontrado = usuarios.find(
+            (usuario) => usuario.nombreUsuario === nombreUsuario && usuario.contrasena === contrasena
+        )
+
+        if(usuarioEncontrado){
+            alert(`¡Bienvenido, ${usuarioEncontrado.nombreUsuario}`)
+        } else {
+            intento++
+            if(intento<2){
+                alert('El usuario y/o contraseña son incorrectos')
+            }else{
+                alert('Fuiste!')
+                setMostrarRegistro(true)
+            }
+            
+        }
+    }
+
+    //Renderizar
+    return(
+        <div className="container">
+            {!mostrarRegistro ? (
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group">
+                        <label htmlFor="iusuario">Nombre de usuario: </label>
+                        <input
+                         type="text"
+                         className="form-control"
+                         id="iusuario"
+                         name="nombreUsuario"
+                         placeholder="Ingrese usuario"
+                         value={nombreUsuario}
+                         onChange={(e) => setNombreUsuario(e.target.value)}
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="ipassword">Contraseña: </label>
+                        <input
+                         type="password"
+                         className="form-control"
+                         id="ipassword"
+                         name="contraseña"
+                         placeholder="Ingrese contraseña"
+                         value={contrasena}
+                         onChange={(e) => setContrasena(e.target.value)}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                        Ingresar
+                    </button>
+                </form>
+
+            ) : (
+                <FormularioRegistro/>
+            )            
+            }
+        </div>
+    )
+
+}
+
+export default Login;

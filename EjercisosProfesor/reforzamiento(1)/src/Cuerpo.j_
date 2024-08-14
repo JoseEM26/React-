@@ -1,0 +1,37 @@
+import React, {useState} from "react";
+import grupo from './ImagenesTradiciones';
+
+const Cuerpo = () => {
+    const [ocultandoImagen, setOcultandoImagen] = useState(null)
+    //definimos un estado llamado ocultandoImagen que almacena el índice de la imagen que se está ocultando.
+
+    //Función para ocultar la imagen al pasar el mouse sobre ella
+    const ocultarImagen = (index) => {
+        setOcultandoImagen(index);
+        //Cuando el mouse pasa sobre la imagen, actualizamos el estado 'ocultandoImagen' con el índice de la imagen
+    }
+
+    const mostrarImagen = () => {
+        setOcultandoImagen(null); //restablecemos el estado a null para mostrar nuevamente la imagen. 
+    }
+
+    const imagenes = grupo.map((x, index) => (
+        <article className="art-tradicion" key={index}>
+            {ocultandoImagen !== index ? ( //si el índice de la imagen actual no coincide con el índice de la imagen que se está ocultando
+                <img 
+                    className="img-tradicion"
+                    alt={x.titulo}
+                    src={x.imagen}
+                    onMouseEnter={() => ocultarImagen(index)}
+                />
+            ) : (
+                <h3 className="h3cab" onMouseLeave={mostrarImagen}>
+                    {x.titulo}
+                </h3>
+            )}
+        </article>
+    ))
+    return <div>{imagenes}</div> //retornamos el conjunto de artículos con imágenes y títulos
+}
+
+export default Cuerpo

@@ -1,0 +1,29 @@
+import React from "react";
+
+import ImgPie from './img/pie.jpg';
+import ImagenesRedes from "./ImgRedes";
+
+function ImagenPie(){
+    return(
+        <img alt="Pie de página" src={ImgPie} className="imgpie"/>
+    );
+}
+
+
+const Imagenes2 = ImagenesRedes.map((x) => 
+    <img className="redes" alt="Imágenes" src={x}/>
+);
+
+
+
+
+function Pie(){
+    return(
+        <div className="divseccion">
+            <ImagenPie/>
+            {Imagenes2}
+        </div>
+    );
+}
+
+export default Pie;

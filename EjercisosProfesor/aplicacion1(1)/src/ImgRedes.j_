@@ -1,0 +1,9 @@
+import red1 from './img/face.jpg';
+import red2 from './img/twitter.jpg';
+import red3 from './img/instagram.jpg';
+
+const ImagenesRedes = [
+    red1, red2, red3
+];
+
+export default ImagenesRedes;

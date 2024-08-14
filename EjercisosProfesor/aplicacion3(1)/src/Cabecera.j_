@@ -1,0 +1,37 @@
+import React, { useState, useEffect } from "react";
+
+const Imagenes = [
+    "/img/ban1.jpg",
+    "/img/ban2.jpg",
+    "/img/ban3.jpg",
+    "/img/ban4.jpg",
+    "/img/ban5.jpg"
+]
+
+const Cabecera = () => {
+
+    //Definir los estados iniciales
+    const [titulo, setTitulo] = useState('')
+    const [imgcab, setImgcab] = useState('/img/ban1.jpg')
+
+    //Utilizamos el hook useEffect para manejar la lógica de actualización de un temporizador
+    useEffect(() => {
+        const intervalo = setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * Imagenes.length)
+            setImgcab(Imagenes[randomIndex])
+            setTitulo('Tradiciones')
+        }, 1000)
+        return () => clearInterval(intervalo) //este clearInterval se asegura de cortar el intervalo cuando el componente se desmonta para evitar problemas de memoria.
+
+    }, [])
+    
+    //Renderizar
+    return(
+        <header className="bloque">
+            <h1 className="h1cab">{titulo}</h1>
+            <img className="imgcab" src={imgcab} alt={titulo}/>
+        </header>
+    )
+}
+
+export default Cabecera;

@@ -1,0 +1,64 @@
+//INFORMACIÓN DEL SOCIO
+
+function mostrarInfoSocio(parametro){
+    const textosSocios = document.querySelectorAll('.texto-oculto');
+
+    textosSocios.forEach(function(texto){
+        texto.style.display = 'none';
+    });
+
+    const textoSocioSeleccionado = document.querySelector(`article.socio:nth-child(${parametro}) .texto-oculto`);
+
+    textoSocioSeleccionado.style.display = 'block';
+
+    setTimeout(function(){
+        textoSocioSeleccionado.style.display = 'none';
+    }, 10000);
+}
+
+
+//VISIÓN MISIÓN VALORES
+
+function mostrarContenido(parametro){
+    const contenido = document.getElementById(`contenido-${parametro}`);
+    if(contenido.style.display === 'block') {
+        contenido.style.display = 'none';
+    }else {
+        contenido.style.display = 'block';
+    }
+}
+
+
+//CUENTA REGRESIVA
+
+function iniciarCuentaRegresiva(){
+    const segundosInput = document.getElementById('segundosInput');
+    const contador = document.getElementById('contador');
+
+    //obtener el valor de segundos ingresados por el usuario
+    const segundos = parseInt(segundosInput.value);
+
+    if(isNaN(segundos) || segundos <= 0){
+        alert("Por favor ingresa un valor válido en segundos.");
+        return;
+    }
+
+    //funcion de cuenta regresiva ejecutandose cada segundo
+    let tiempoRestante = segundos;
+
+    const intervalo = setInterval(function(){
+        contador.textContent = tiempoRestante + " segundos";
+
+        //verificar si llego a 0
+        if(tiempoRestante <= 0) {
+            clearInterval(intervalo);
+            contador.textContent = "Redirigiendo a catalogo.html";
+            setTimeout(function(){
+                //window.location.href="catalogo.html";
+                window.location.href="https://www.google.com.pe"
+                //window.open("https://www.google.com.pe", "_blank");
+            }, 2000);
+        }
+        tiempoRestante--;
+    }, 1000);
+}

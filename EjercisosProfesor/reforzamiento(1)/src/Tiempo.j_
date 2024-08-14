@@ -1,0 +1,32 @@
+import React, {useState, useEffect} from "react";
+
+function Tiempo() {
+    //Estado para la fecha y hora
+    const [fecha, setFecha] = useState(null);
+    const [hora, setHora] = useState(null);
+
+    useEffect(()=> {
+        //Función para actualizar la fecha y hora
+        const actualizarFechaHora = () => {
+            const f = new Date();
+            const nuevaFecha = `${f.getDate()}/${f.getMonth()+1}/${f.getFullYear()}`;
+            const nuevaHora = `${f.getHours()}:${f.getMinutes() < 10 ? "0" : ""}${f.getMinutes()}:${f.getSeconds() < 10 ? "0" : ""}${f.getSeconds()}`;
+            setFecha(nuevaFecha)
+            setHora(nuevaHora)
+        };
+
+        const intervalo = setInterval(actualizarFechaHora, 1000)
+
+        //Limpiar el intervalo 
+        return() => clearInterval(intervalo);
+    }, []);
+
+    return (
+        <section>
+            <article className="div-fecha">Hoy es: {fecha}</article>
+            <article className="div-fecha">Son las: {hora}</article>
+        </section>
+    )
+}
+
+export default Tiempo;

@@ -1,0 +1,18 @@
+import React from "react";
+
+import ImagenesTradicionales from "./Tradiciones";
+
+const Imagenes = ImagenesTradicionales.map((x) => 
+    <img className="imgseccion" alt="Imágenes" src={x}/>
+);
+
+function Cuerpo(){
+    return(
+        <div className="divseccion">
+            {Imagenes}
+        </div>
+    );
+}
+
+export default Cuerpo;
+

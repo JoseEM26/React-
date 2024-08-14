@@ -1,0 +1,21 @@
+import './App.css'; 
+
+import Menu from './Menu';
+import FechaHora from './FechaHora';
+import Cuerpo from './Cuerpo';
+import Cabecera from './Cabecera';
+import Pie from './Pie';
+
+function App(){
+  return(
+    <div className='container'>
+      <Menu/>
+      <Cabecera/>
+      <FechaHora/>
+      <Cuerpo/>
+      <Pie/>
+    </div>
+  )
+}
+
+export default App;
